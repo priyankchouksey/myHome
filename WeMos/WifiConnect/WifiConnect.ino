@@ -1,12 +1,7 @@
 #include <ESP8266WiFi.h>
  
-<<<<<<< HEAD
-const char* ssid = "";
-const char* password = "";
-=======
 const char* ssid = "ssid name";
 const char* password = "ssid password";
->>>>>>> 8a10c034bf0823c9a098a600e6313d41e16fac11
  
 WiFiServer server(80);
  
@@ -19,10 +14,6 @@ void setup() {
   digitalWrite(LED_BUILTIN, LOW);
  
   // Connect to WiFi network
-<<<<<<< HEAD
-  WiFi.begin(ssid, password);
- 
-=======
   Serial.println();
   Serial.println();
   Serial.print("Connecting to ");
@@ -30,16 +21,10 @@ void setup() {
  
   WiFi.begin(ssid, password);
   
->>>>>>> 8a10c034bf0823c9a098a600e6313d41e16fac11
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-<<<<<<< HEAD
- 
-  // Start the server
-  server.begin();
-=======
   Serial.println("");
   Serial.println("WiFi connected");
  
@@ -50,7 +35,6 @@ void setup() {
   // Print the IP address
   Serial.print("Use this URL : ");
   Serial.print("http://");
->>>>>>> 8a10c034bf0823c9a098a600e6313d41e16fac11
   Serial.print(WiFi.localIP());
   Serial.println("/");
  
@@ -64,35 +48,20 @@ void loop() {
   }
  
   // Wait until the client sends some data
-<<<<<<< HEAD
-=======
   Serial.println("new client");
->>>>>>> 8a10c034bf0823c9a098a600e6313d41e16fac11
   while(!client.available()){
     delay(1);
   }
  
   // Read the first line of the request
   String request = client.readStringUntil('\r');
-<<<<<<< HEAD
-=======
   Serial.println(request);
->>>>>>> 8a10c034bf0823c9a098a600e6313d41e16fac11
   client.flush();
  
   // Match the request
  
   int value = LOW;
   if (request.indexOf("/LED=ON") != -1) {
-<<<<<<< HEAD
-    digitalWrite(LED_BUILTIN, LOW);
-    value = HIGH;
-  } 
-  if (request.indexOf("/LED=OFF") != -1){
-    digitalWrite(LED_BUILTIN, HIGH);
-    value = LOW;
-  }
-=======
     digitalWrite(LED_BUILTIN, HIGH);
     value = HIGH;
   } 
@@ -112,7 +81,6 @@ void loop() {
  
   client.print("Led is now: ");
  
->>>>>>> 8a10c034bf0823c9a098a600e6313d41e16fac11
   if(value == HIGH) {
     client.print("On");  
   } else {
@@ -120,11 +88,8 @@ void loop() {
   }
  
   delay(1);
-<<<<<<< HEAD
-=======
   Serial.println("Client disconnected");
   Serial.println("");
->>>>>>> 8a10c034bf0823c9a098a600e6313d41e16fac11
  
 }
 
