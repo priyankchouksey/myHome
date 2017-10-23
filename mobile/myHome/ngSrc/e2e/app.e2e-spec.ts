@@ -1,14 +1,14 @@
-import { NgSrcPage } from './app.po';
+import { AppPage } from './app.po';
 
 describe('ng-src App', () => {
-  let page: NgSrcPage;
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new NgSrcPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

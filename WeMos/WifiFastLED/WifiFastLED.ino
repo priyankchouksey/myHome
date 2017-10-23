@@ -27,9 +27,10 @@ FASTLED_USING_NAMESPACE
 //#define CLK_PIN   4
 #define LED_TYPE    WS2812
 #define COLOR_ORDER GRB
-#define NUM_LEDS    300
+#define NUM_LEDS    30
 CRGB leds[NUM_LEDS];
- 
+
+
 #define BRIGHTNESS          96
 #define FRAMES_PER_SECOND  120
  
@@ -67,10 +68,11 @@ void setup() {
  
 // List of patterns to cycle through.  Each is defined as a separate function below.
 typedef void (*SimplePatternList[])();
-SimplePatternList gPatterns = { rainbow, rainbowWithGlitter, confetti, sinelon, juggle, bpm };
+SimplePatternList gPatterns = { rainbow, rainbowWithGlitter, confetti, sinelon, juggle, bpm, wipe };
  
 uint8_t gCurrentPatternNumber = 0; // Index number of which pattern is current
 uint8_t gHue = 0; // rotating "base color" used by many of the patterns
+CRGB currentColor;
  
 void loop()
 {
@@ -134,16 +136,20 @@ void webResponse(WiFiClient client, String request){
  
 void processRequest(String request){
     if (request.indexOf("/WPO") != -1){
-      //colorWipe(strip.Color(0, 0, 0), 50);    // Black/off
+      currentColor = 0x000000;
+      gCurrentPatternNumber = 6;    // Black/off
     }
     else if (request.indexOf("/WPR") != -1){
-      //colorWipe(strip.Color(255, 0, 0), 50);  // Red
+      currentColor = 0xFF0000;
+      gCurrentPatternNumber = 6;    // Black/off
     }
     else if (request.indexOf("/WPG") != -1){
-      //colorWipe(strip.Color(0, 255, 0), 50);  // Green
+      currentColor = 0x00FF00;
+      gCurrentPatternNumber = 6;    // Black/off
     }
     else if (request.indexOf("/WPB") != -1){
-      //colorWipe(strip.Color(0, 0, 255), 50);  // Blue
+      currentColor = 0x0000FF;
+      gCurrentPatternNumber = 6;    // Black/off
     }
     else if (request.indexOf("/RBO") != -1){
       gCurrentPatternNumber = 0;
@@ -227,3 +233,8 @@ void juggle() {
     dothue += 32;
   }
 }
+
+void wipe(){
+  fill_solid(leds, NUM_LEDS, currentColor);
+}
+
