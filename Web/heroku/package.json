@@ -1,0 +1,18 @@
+{
+  "name": "webhook-myHome",
+  "version": "1.0.0",
+  "description": "Webhook to integrate with google assistant",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Priyank Chouksey",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "ws": "^3.2.0",
+    "bufferutil": "1.2.1",
+    "utf-8-validate": "1.2.1",
+    "path":"0.12.7"
+  }
+}
