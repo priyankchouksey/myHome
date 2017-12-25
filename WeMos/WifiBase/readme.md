@@ -21,11 +21,11 @@ This is a base sketch that you can use to create various implementation of your 
 - Open the sketch in arduino IDE and upload to the esp board.
  
 ### How to (End) use...
-- When the board boots, it creates an AP with a name 'ESP<ChipID>', where <chipID> is a unique id of the board based on the mac address.
+- When the board boots, it creates an AP with a name 'ESP**ChipID**', where **chipID** is a unique id of the board based on the mac address.
 - From your PC/phone connect to that access point, it should automatically open a configuration page where you can save the wifi configuration of your router. If the configuration page does not appear, open http://192.168.4.1 in your browser.
 - Once saved the board will auto reboot and try to connect to your wifi router with saved configuration. You may need to find new ip of the esp board in your router (showing the connected IP is still in process of development).
-- Once connected open the http://<new IP> in your browser, it should now show a page to control the esp on board LED.
-- You have another server, which should be notified on each action esp performs? Add the pingback API url by calling http://<newIP>/setConfig?pingBackAPI=<APIurl>
+- Once connected open the http://**new IP** in your browser, it should now show a page to control the esp on board LED.
+- You have another server, which should be notified on each action esp performs? Add the pingback API url by calling http://**newIP**/setConfig?pingBackAPI=**APIurl**
 
 ### What to Modify...
 This sketch can be used as a baseline project for your further development. Download the sketch and modify as below.
