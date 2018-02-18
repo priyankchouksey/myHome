@@ -1,2 +1,5 @@
+.DS_Store
 /Web/client/node_module
 /Web/heroku/node_module
+/mobile/myhome/node_modules
+mobile/myHome/node_modules
